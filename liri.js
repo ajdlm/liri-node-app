@@ -27,9 +27,11 @@ switch (process.argv[2]) {
             };
         };
 
-        console.log("\nARTIST: " + artist + "\n\n----------------------------------");
-
         var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
+
+        artist = artist.replace(/\+/g, " ");
+
+        console.log("\nARTIST: " + artist + "\n\n----------------------------------");
 
         axios.get(queryURL)
             .then(function (response) {
@@ -65,41 +67,74 @@ switch (process.argv[2]) {
 
         var song = "";
 
-        for (var k = 3; k < userInput.length; k++) {
-            if (k > 3) {
-                song += "+" + userInput[k];
-            }
+        var noSearch = false;
 
-            else {
-                song += userInput[k];
+        if (process.argv.length < 4) {
+            song = "The+Sign";
+            noSearch = true;
+        }
+
+        else {
+            for (var k = 3; k < userInput.length; k++) {
+                if (k > 3) {
+                    song += "+" + userInput[k];
+                }
+
+                else {
+                    song += userInput[k];
+                };
             };
         };
 
-        console.log("\nSONG: " + song + "\n\n----------------------------------");
+        console.log(song);
 
         spotify
             .search({ type: "track", query: song, limit: 1 })
             .then(function (response) {
-                var songData = response.tracks.items[0];
-
-                var songArtists = "ee";
-
-                for (var l = 0; l < songData.artists; l++) {
-                    if (l > 0) {
-                        songArtists += ", " + songData.artists[l].name;
-                    }
-        
-                    else {
-                        songArtists += songData.artists[l].name;
-                    };
+                if (noSearch === true) {
+                    console.log("\nSEARCH: No search term provided.\n\n----------------------------------");
                 }
 
-                console.log("Artist(s): " + songArtists);
-                
-                // console.log(response);
+                else {
+                    song = song.replace(/\+/g, " ");
+
+                    console.log("\nSEARCH: " + song + "\n\n----------------------------------");
+                };
+
+                if (response.tracks.items.length > 0) {
+                    var songData = response.tracks.items[0];
+
+                    var songArtists = "";
+
+                    var previewURL;
+
+                    if (songData.preview_url === null) {
+                        previewURL = "none available";
+                    }
+
+                    else {
+                        previewURL = songData.preview_url;
+                    };
+
+                    for (var l = 0; l < songData.artists.length; l++) {
+                        if (l > 0) {
+                            songArtists += ", " + songData.artists[l].extname;
+                        }
+
+                        else {
+                            songArtists += songData.artists[l].name;
+                        };
+                    }
+
+                    console.log("\nArtist(s): " + songArtists + "\nSong Name: " + songData.name + "\nSpotify Preview Link: " + previewURL + "\nAlbum: " + songData.album.name + "\n");
+                }
+
+                else {
+                    console.log("\nNo results.\n")
+                };
+
                 // The following can be uncommented to print the entire result in JSON:
                 // console.log(JSON.stringify(songData, undefined, 2));
-                // console.log(songData);
             })
             .catch(function (err) {
                 console.log(err);
