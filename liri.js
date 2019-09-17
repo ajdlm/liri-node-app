@@ -70,7 +70,7 @@ switch (process.argv[2]) {
         var noSearch = false;
 
         if (process.argv.length < 4) {
-            song = "The+Sign";
+            song = "The+Sign+(US+Album)";
             noSearch = true;
         }
 
@@ -85,8 +85,6 @@ switch (process.argv[2]) {
                 };
             };
         };
-
-        console.log(song);
 
         spotify
             .search({ type: "track", query: song, limit: 1 })
@@ -118,7 +116,7 @@ switch (process.argv[2]) {
 
                     for (var l = 0; l < songData.artists.length; l++) {
                         if (l > 0) {
-                            songArtists += ", " + songData.artists[l].extname;
+                            songArtists += ", " + songData.artists[l].name;
                         }
 
                         else {
