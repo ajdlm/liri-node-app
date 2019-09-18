@@ -31,13 +31,13 @@ switch (process.argv[2]) {
 
         artist = artist.replace(/\+/g, " ");
 
-        console.log("\nARTIST: " + artist + "\n\n----------------------------------");
+        console.log("\nSEARCH: " + artist + "\n\n----------------------------------");
 
         axios.get(queryURL)
             .then(function (response) {
                 evData = response.data;
 
-                for (var j = 0; evData.length; j++) {
+                for (var j = 0; j < evData.length; j++) {
                     eventDate = moment(evData[j].datetime).format("MM/DD/YYYY");
 
                     console.log("\nEVENT #" + (j + 1) + "\n\nVenue Name: " + evData[j].venue.name + "\nVenue Location: " + evData[j].venue.city + ", " + evData[j].venue.country + "\nEvent Date: " + eventDate + "\n");
@@ -51,14 +51,7 @@ switch (process.argv[2]) {
                 //console.log(JSON.stringify(response.data, undefined, 2));
             })
             .catch(function (error) {
-                if (error.response) {
-                    console.log("---------------Data---------------");
-                    console.log(error.response.data);
-                    console.log("---------------Status---------------");
-                    console.log(error.response.status);
-                    console.log("---------------Status---------------");
-                    console.log(error.response.headers);
-                }
+                console.log(error);
             });
 
         break;
@@ -140,7 +133,59 @@ switch (process.argv[2]) {
 
         break;
     case "movie-this":
-        // stuff
+        var userInput = process.argv;
+
+        var movie;
+
+        var noSearch = false;
+
+        if (process.argv.length < 4) {
+            movie = "Mr.+Nobody";
+            noSearch = true;
+        }
+
+        else {
+            movie = userInput.slice(3).join("+");
+        };
+        var queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+
+        axios.get(queryURL)
+            .then(function (response) {
+                if (noSearch === true) {
+                    console.log("\nSEARCH: No search term provided.\n\n----------------------------------");
+                }
+
+                else {
+                    movie = movie.replace(/\+/g, " ");
+
+                    console.log("\nSEARCH: " + movie + "\n\n----------------------------------");
+                }
+
+                var data = response.data;
+
+                var rottenRating;
+
+                var isRotten = false;
+
+                if (data.Ratings) {
+                    for (var m = 0; m < data.Ratings.length; m++) {
+                        if (data.Ratings[m].Source === "Rotten Tomatoes") {
+                            rottenRating = data.Ratings[m].Value;
+                            isRotten = true;
+                        };
+                    };
+                };
+
+                if (isRotten === false) {
+                    rottenRating = "not available";
+                };
+
+                console.log("\nMovie Title: " + data.Title + "\n\nYear Released: " + data.Year + "\n\nIMDB Rating: " + data.imdbRating + "\n\nRotten Tomatoes Rating: " + rottenRating + "\n\nCountry of Origin: " + data.Country + "\n\nLanguage: " + data.Language + "\n\nPlot: " + data.Plot + "\n\nActors: " + data.Actors + "\n");
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
         break;
     case "do-what-it-says":
         //stuff
