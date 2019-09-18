@@ -34,13 +34,19 @@ function getInfo(x) {
                 .then(function (response) {
                     evData = response.data;
 
-                    for (var j = 0; j < evData.length; j++) {
-                        eventDate = moment(evData[j].datetime).format("MM/DD/YYYY");
+                    if (evData.length === 0) {
+                        console.log("\nNo results.\n");
+                    }
 
-                        console.log("\nEVENT #" + (j + 1) + "\n\nVenue Name: " + evData[j].venue.name + "\nVenue Location: " + evData[j].venue.city + ", " + evData[j].venue.country + "\nEvent Date: " + eventDate + "\n");
+                    else {
+                        for (var j = 0; j < evData.length; j++) {
+                            eventDate = moment(evData[j].datetime).format("MM/DD/YYYY");
 
-                        if ((j + 1) < evData.length) {
-                            console.log("----------------------------------");
+                            console.log("\nEVENT #" + (j + 1) + "\n\nVenue Name: " + evData[j].venue.name + "\nVenue Location: " + evData[j].venue.city + ", " + evData[j].venue.country + "\nEvent Date: " + eventDate + "\n");
+
+                            if ((j + 1) < evData.length) {
+                                console.log("----------------------------------");
+                            };
                         };
                     };
 
@@ -154,7 +160,13 @@ function getInfo(x) {
                         rottenRating = "not available";
                     };
 
-                    console.log("\nMovie Title: " + data.Title + "\n\nYear Released: " + data.Year + "\n\nIMDB Rating: " + data.imdbRating + "\n\nRotten Tomatoes Rating: " + rottenRating + "\n\nCountry of Origin: " + data.Country + "\n\nLanguage: " + data.Language + "\n\nPlot: " + data.Plot + "\n\nActors: " + data.Actors + "\n");
+                    if (data.Title === undefined) {
+                        console.log("\nNo results.\n");
+                    }
+
+                    else {
+                        console.log("\nMovie Title: " + data.Title + "\n\nYear Released: " + data.Year + "\n\nIMDB Rating: " + data.imdbRating + "\n\nRotten Tomatoes Rating: " + rottenRating + "\n\nCountry of Origin: " + data.Country + "\n\nLanguage: " + data.Language + "\n\nPlot: " + data.Plot + "\n\nActors: " + data.Actors + "\n");
+                    };
                 })
                 .catch(function (error) {
                     console.log(error);
