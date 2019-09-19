@@ -90,4 +90,4 @@ One of three types of information can be searched for -- information about conce
 
 ## Author
 
-* Antonio de las Morenas (planned and wrote all of the code in liri.js)
+Antonio de las Morenas (planned and wrote all of the code in liri.js)
