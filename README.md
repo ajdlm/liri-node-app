@@ -80,7 +80,7 @@ One of three types of information can be searched for -- information about conce
 
 * Node.js
 
-* Node Spotify API Node package (https://www.npmjs.com/package/node-spotify-api)
+* Node Spotify API package (https://www.npmjs.com/package/node-spotify-api)
 
 * Axios Node package (https://www.npmjs.com/package/axios)
 
