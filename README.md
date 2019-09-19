@@ -20,9 +20,7 @@ One of three types of information can be searched for -- information about conce
 
 ![](/assets/images/concert-search-1.gif)
 
-
 ![](/assets/images/concert-search-2.gif)
-
 
 ![](/assets/images/concert-search-3.gif)
 
@@ -40,6 +38,16 @@ One of three types of information can be searched for -- information about conce
 
 * If no song name is entered after "spotify-this-song," LIRI Bot will return information on the song "The Sign" by Ace of Base.
 
+### Example Searches
+
+![](/assets/images/spotify-search-1.gif)
+
+![](/assets/images/spotify-search-2.gif)
+
+![](/assets/images/spotify-search-3.gif)
+
+![](/assets/images/spotify-search-4.gif)
+
 ## Finding Information About Movies
 
 * Use the bash command line to navigate into the LIRI Bot app's repository.
@@ -53,6 +61,16 @@ One of three types of information can be searched for -- information about conce
 * If unsuccessful, it will tell the user that there are no results.
 
 * If no movie name is entered after "movie-this," LIRI Bot will return information on the movie "Mr. Nobody."
+
+### Example Searches
+
+![](/assets/images/movie-search-1.gif)
+
+![](/assets/images/movie-search-2.gif)
+
+![](/assets/images/movie-search-3.gif)
+
+![](/assets/images/movie-search-4.gif)
 
 ## Using random.txt to Find Information
 
