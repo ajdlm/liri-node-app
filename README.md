@@ -82,6 +82,12 @@ One of three types of information can be searched for -- information about conce
 
 * Alternatively, if random.txt were to contain the text "movie-this,'The Matrix'," LIRI Bot would search the OMDb API and return information on "The Matrix."
 
+### Example Searches
+
+![](/assets/images/do-it-1.gif)
+
+![](/assets/images/do-it-1.png)
+
 ## The Structure of LIRI Bot's Code
 
 * LIRI Bot is structured around a function that contains a switch statement.
@@ -101,12 +107,6 @@ One of three types of information can be searched for -- information about conce
 * Should random.txt be used, the "term" variable's value will be reset to the second value of the array split from that file's text immediately before the function containing the switch statement is called.
 
 * As such, when the user enters the "do-what-it-says" command, the information provided by random.txt will be used in place of any initially taken from the command line.
-
-### Example Searches
-
-![](/assets/images/do-it-1.gif)
-
-![](/assets/images/do-it-1.png)
 
 ## Technologies Used
 
