@@ -34,7 +34,7 @@ function getInfo(x) {
                 .then(function (response) {
                     evData = response.data;
 
-                    if ((evData.length === 0) || (evData[0] === undefined)) {
+                    if ((evData.length === 0) || (!evData[0].venue)) {
                         console.log("\nNo results.\n");
                     }
 
