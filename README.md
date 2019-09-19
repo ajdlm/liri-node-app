@@ -84,9 +84,9 @@ One of three types of information can be searched for -- information about conce
 
 ### Example Searches
 
-![](/assets/images/do-it-1.gif)
-
 ![](/assets/images/do-it-1.png)
+
+![](/assets/images/do-it-1.gif)
 
 ## The Structure of LIRI Bot's Code
 
