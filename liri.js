@@ -34,7 +34,7 @@ function getInfo(x) {
                 .then(function (response) {
                     evData = response.data;
 
-                    if (evData.length === 0) {
+                    if ((evData.length === 0) || (evData[0] === undefined)) {
                         console.log("\nNo results.\n");
                     }
 
@@ -165,7 +165,7 @@ function getInfo(x) {
                     }
 
                     else {
-                        console.log("\nMovie Title: " + data.Title + "\n\nYear Released: " + data.Year + "\n\nIMDB Rating: " + data.imdbRating + "\n\nRotten Tomatoes Rating: " + rottenRating + "\n\nCountry of Origin: " + data.Country + "\n\nLanguage: " + data.Language + "\n\nPlot: " + data.Plot + "\n\nActors: " + data.Actors + "\n");
+                        console.log("\nMovie Title: " + data.Title + "\n\nYear Released: " + data.Year + "\n\nIMDb Rating: " + data.imdbRating + "\n\nRotten Tomatoes Rating: " + rottenRating + "\n\nCountry of Origin: " + data.Country + "\n\nLanguage: " + data.Language + "\n\nPlot: " + data.Plot + "\n\nActors: " + data.Actors + "\n");
                     };
                 })
                 .catch(function (error) {
