@@ -122,7 +122,7 @@ function getInfo(x) {
         case "movie-this":
             var noSearch = false;
 
-            if (process.argv.length < 4) {
+            if ((process.argv.length < 4) && (!usingText)) {
                 term = "Mr.+Nobody";
                 noSearch = true;
             }
@@ -187,6 +187,8 @@ if (search === "do-what-it-says") {
         usingText = true;
 
         term = fileCommands[1];
+
+        term = term.replace(/ /g, "+").replace(/"/g, "").replace(/'/g, "");
 
         getInfo(fileCommands[0]);
     });

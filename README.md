@@ -88,6 +88,10 @@ One of three types of information can be searched for -- information about conce
 
 ![](/assets/images/do-it-1.gif)
 
+![](/assets/images/do-it-2.png)
+
+![](/assets/images/do-it-2.gif)
+
 ## The Structure of LIRI Bot's Code
 
 * LIRI Bot is structured around a function that contains a switch statement.
