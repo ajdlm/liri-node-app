@@ -102,6 +102,12 @@ One of three types of information can be searched for -- information about conce
 
 * As such, when the user enters the "do-what-it-says" command, the information provided by random.txt will be used in place of any initially taken from the command line.
 
+### Example Searches
+
+![](/assets/images/do-it-1.gif)
+
+![](/assets/images/do-it-1.png)
+
 ## Technologies Used
 
 * JavaScript
@@ -118,4 +124,4 @@ One of three types of information can be searched for -- information about conce
 
 ## Author
 
-Antonio de las Morenas -- planned and wrote all of the code in liri.js
+Antonio de las Morenas -- planned and wrote the code in liri.js
