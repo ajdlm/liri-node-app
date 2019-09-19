@@ -16,6 +16,16 @@ One of three types of information can be searched for -- information about conce
 
 * If unsuccessful, either because the artist wasn't found or no events were found for the artist, it will tell the user that there are no results.
 
+### Example Searches
+
+![](/assets/images/concert-search-1.gif)
+
+
+![](/assets/images/concert-search-2.gif)
+
+
+![](/assets/images/concert-search-3.gif)
+
 ## Finding Information About Songs
 
 * Use the bash command line to navigate into the LIRI Bot app's repository.
